@@ -26,9 +26,9 @@ const Home = () => {
             </p>
           </div>
           <div className="p-6 bg-base3 rounded-lg shadow-md border border-base4">
-            <h3 className="text-xl font-semibold mb-4">Dark Mode</h3>
+            <h3 className="text-xl font-semibold mb-4">Easy to Use</h3>
             <p className="text-base">
-              Switch between light and dark modes to suit your preference.
+              Enjoy a simple, intuitive interface designed for seamless note-taking, whether you're in light or dark mode.
             </p>
           </div>
         </div>
