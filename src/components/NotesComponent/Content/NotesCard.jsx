@@ -1,43 +1,50 @@
-import React from 'react';
+import React, { useState } from "react";
+import { FaRegSave } from "react-icons/fa";
 
-const NotesCard = ({ note, onEdit, onDelete }) => {
-  if (!note) return null; // Return nothing if note is invalid
+const NotesCard = ({ onSave }) => {
+  const [noteTitle, setNoteTitle] = useState(""); 
+  const [noteDescription, setNoteDescription] = useState("");
+
+  const handleSave = () => {
+    if (!noteTitle.trim() || !noteDescription.trim()) {
+      return alert("Both title and content are required!");
+    }
+
+    onSave({ title: noteTitle, content: noteDescription }); // Pass the note as an object
+    setNoteTitle(""); // Clear the title
+    setNoteDescription(""); // Clear the description
+  };
 
   return (
-    <div className="p-6 border border-gray-300 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 ease-in-out">
-      {/* Actions (Edit/Delete) */}
-      <div className="flex justify-end mb-6 space-x-4">
-        <button
-          onClick={() => onEdit(note.id)}
-          className="text-blue-600 hover:text-blue-800 font-semibold py-2 px-4 border border-blue-500 rounded-lg transition-all duration-200 ease-in-out transform hover:scale-105"
-        >
-          Edit
-        </button>
-        <button
-          onClick={() => onDelete(note.id)}
-          className="text-red-600 hover:text-red-800 font-semibold py-2 px-4 border border-red-500 rounded-lg transition-all duration-200 ease-in-out transform hover:scale-105"
-        >
-          Delete
-        </button>
-      </div>
+    <div className="mx-auto p-4 bg-white shadow-lg rounded-lg">
+      <div className="flex flex-col gap-4">
+        <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">
+          <input
+            type="text"
+            placeholder="Add Note Title Here"
+            value={noteTitle}
+            onChange={(e) => setNoteTitle(e.target.value)}
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+          <button
+            onClick={handleSave}
+            className="mt-2 md:mt-0 flex justify-center items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          >
+            <FaRegSave />
+            Save
+          </button>
+        </div>
 
-      {/* Title */}
-      <h3 className="text-2xl font-semibold text-gray-800 mb-3">{note.title}</h3>
-
-      {/* Content */}
-      <p className="text-gray-700 text-base leading-relaxed mb-5">{note.content}</p>
-
-      {/* Footer */}
-      <div className="text-sm text-gray-500">
-        <span>Created: {note.createdAt || 'Not available'}</span>
+        <textarea
+          placeholder="Enter your note description"
+          value={noteDescription}
+          onChange={(e) => setNoteDescription(e.target.value)}
+          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          rows="6"
+        />
       </div>
     </div>
   );
-};
-
-// Default prop if `note` is not provided
-NotesCard.defaultProps = {
-  note: { title: 'Untitled', content: 'No content', createdAt: 'Not available' },
 };
 
 export default NotesCard;

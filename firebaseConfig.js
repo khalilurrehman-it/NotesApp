@@ -1,37 +1,3 @@
-// // Import the functions you need from the SDKs you need
-// import { initializeApp } from "firebase/app";
-// import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-// import { getFirestore, setDoc, doc } from "firebase/firestore";
-
-// // Your web app's Firebase configuration
-// const firebaseConfig = {
-//   apiKey: "AIzaSyC-vgO6DBINTiBaknWim8ZmzQ7DDrD8rA8",
-//   authDomain: "notespace-4cfed.firebaseapp.com",
-//   projectId: "notespace-4cfed",
-//   storageBucket: "notespace-4cfed.firebasestorage.app",
-//   messagingSenderId: "317026198709",
-//   appId: "1:317026198709:web:98590f2c49a72ee7328afc",
-//   measurementId: "G-RPD6B4TFQF"
-// };
-
-// // Initialize Firebase
-// const app = initializeApp(firebaseConfig);
-
-// // Firebase Authentication
-// const auth = getAuth(app);
-
-// // Firebase Firestore
-// const db = getFirestore(app);
-
-// // Google Auth provider
-// const provider = new GoogleAuthProvider();
-
-// // Exporting necessary functions and values
-// export { auth, provider, db, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, signInWithRedirect, setDoc, doc };
-
-
-
-
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";

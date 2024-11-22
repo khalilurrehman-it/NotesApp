@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';  // Add useNavigate import
+import { Link, useNavigate } from 'react-router-dom';  
 import { FaGoogle } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { loginWithEmail, loginWithGoogle } from '../../Redux/actions/authActions';
@@ -11,7 +11,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const dispatch = useDispatch(); 
-  const navigate = useNavigate();  // Initialize navigate function
+  const navigate = useNavigate();  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,7 +22,7 @@ const Login = () => {
     try {
       await signInWithPopup(auth, provider);
       dispatch(loginWithGoogle());
-      navigate('/');  // Redirect to the home page
+      navigate('/');  
     } catch (error) {
       setError('Failed to log in with Google. Please try again.');
       console.error("Google sign-in error: ", error);

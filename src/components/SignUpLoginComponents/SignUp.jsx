@@ -4,8 +4,8 @@ import { FaGoogle } from "react-icons/fa";
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { signUpWithEmail, signUpWithGoogle  } from '../../Redux/actions/authActions';
-import { signInWithPopup } from 'firebase/auth';  // Use signInWithPopup instead of signInWithRedirect
-import { auth, provider } from '../../../firebaseConfig';  // Make sure you import auth and provider from your firebase config
+import { signInWithPopup } from 'firebase/auth';  
+import { auth, provider } from '../../../firebaseConfig';  
 
 const SignUp = () => {
   const [name, setName] = useState('');
@@ -21,7 +21,6 @@ const SignUp = () => {
 
   const handleGoogleSignIn = async () => {
     try {
-      // Use signInWithPopup to ensure the sign-in happens in the same tab/window
       await signInWithPopup(auth, provider);
       dispatch(signUpWithGoogle(navigate));
     } catch (error) {

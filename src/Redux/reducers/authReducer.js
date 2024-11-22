@@ -16,7 +16,7 @@ const initialState = {
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOGIN_START:
-      return { ...state, loading: true, error: null }; // Reset error on start
+      return { ...state, loading: true, error: null };
     case LOGIN_SUCCESS:
       return { ...state, loading: false, user: action.payload };
     case LOGIN_FAIL:
@@ -24,7 +24,7 @@ const authReducer = (state = initialState, action) => {
     case LOGOUT:
       return { ...state, user: null, error: null };
     case CLEAR_ERROR:
-      return { ...state, error: null }; // Handle error clearing
+      return { ...state, error: null }; 
     default:
       return state;
   }

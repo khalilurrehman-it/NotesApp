@@ -4,13 +4,13 @@ import {
   LOGIN_FAIL,
   LOGOUT,
   CLEAR_ERROR,
-} from "../reducers/authReducer"; // Adjust the import path as necessary
+} from "../reducers/authReducer"; 
 import {
   createUserWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
 } from "firebase/auth";
-import { auth } from "../../../firebaseConfig"; // Ensure this is the correct path
+import { auth } from "../../../firebaseConfig"; 
 
 // Sign Up with Email and Password
 export const signUpWithEmail = (userData, navigate) => async (dispatch) => {
@@ -22,13 +22,12 @@ export const signUpWithEmail = (userData, navigate) => async (dispatch) => {
       email,
       password
     );
-    // You can add user information like name after signing up
     await userCredential.user.updateProfile({ displayName: name });
     dispatch({ type: LOGIN_SUCCESS, payload: userCredential.user });
-    navigate("/"); // Redirect to home or a different page after successful signup
+    navigate("/"); 
   } catch (error) {
     const errorMessage = error.message || "Sign up failed. Please try again.";
-    console.error("SignUp Error: ", error); // Log the error for debugging
+    console.error("SignUp Error: ", error); 
     dispatch({ type: LOGIN_FAIL, payload: errorMessage });
   }
 };
@@ -42,7 +41,7 @@ export const signUpWithGoogle = (navigate) => async (dispatch) => {
     provider.addScope("email");
     const result = await signInWithPopup(auth, provider);
     dispatch({ type: LOGIN_SUCCESS, payload: result.user });
-    navigate("/"); // Redirect after Google sign-up
+    navigate("/"); 
   } catch (error) {
     const errorMessage =
       error.code === "auth/popup-closed-by-user"

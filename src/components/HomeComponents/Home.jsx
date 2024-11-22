@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-base1 text-white p-8 md:p-16 text-center">
+      <section className="bg-base1 p-8 md:p-16 text-center">
         <h1 className="text-3xl font-extrabold mb-4">Welcome to NoteSpace</h1>
         <p className="text-lg mb-6">Your go-to platform for organizing and managing your notes efficiently.</p>
         <Link to="/signup">
